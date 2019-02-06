@@ -29,7 +29,7 @@ namespace ConsoleApp1
             fullName = firstName + " " + middleInitial + " " + lastName;
 
             System.Console.Write("Ok, " + fullName + " I'm Mr. T and I'm a Night Elf Mohawk. ");
-            System.Console.Write("How many feet tall are you " + firstName + " ?");
+            System.Console.Write("How many feet tall are you " + firstName + " ? ");
             heightFeet = int.Parse(System.Console.ReadLine());
 
             System.Console.Write("Thanks fool. How many inches go with that? ");
@@ -40,25 +40,16 @@ namespace ConsoleApp1
             System.Console.Write(firstName + ", how old are you? ");
             age = int.Parse(System.Console.ReadLine());
 
-            System.Console.Write("Are you a citizen? TRUE OR FALSE FOOL ");
-            isCitizen = bool.Parse(System.Console.ReadLine());
+            System.Console.Write("Are you a citizen? ");
+            string isCitizenString = System.Console.ReadLine().ToLower();
+            isCitizen = isCitizenString.Contains("y") || isCitizenString.Contains("t");
 
-            if (age < 18)
-            {
-                canVote = false;
-            }
-            
-            if (age >= 18)
-                if (isCitizen = true)
-            {
-                    canVote = true;
-            }
-            else
-                {
-                    canVote = false;
-                }
+            canVote = isCitizen && age >= 18;
 
             System.Console.Write(fullName + " " + totalHeightCM + " " + canVote);
+
+            System.Threading.Thread.Sleep(10000);
+
         }
     }
 }
